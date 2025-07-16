@@ -47,3 +47,5 @@ class Product {
     return this.price * (1 - this.discountPercentage / 100);
   };
 }
+
+export default Product;
