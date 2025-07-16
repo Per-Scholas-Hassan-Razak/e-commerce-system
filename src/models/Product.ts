@@ -16,7 +16,7 @@ class Product {
     price: number,
     discountPercentage: number,
     image: string,
-    taxtaxPercentage: number = 4.75
+    taxPercentage: number = 4.75
   ) {
     this.id = id;
     this.title = title;
@@ -25,7 +25,7 @@ class Product {
     this.price = price;
     this.discountPercentage = discountPercentage;
     this.image = image;
-    this.taxPercentage = taxtaxPercentage;
+    this.taxPercentage = taxPercentage;
   }
 
   displayDetails = (): void => {
