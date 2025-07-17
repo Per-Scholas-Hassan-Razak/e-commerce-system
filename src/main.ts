@@ -1,5 +1,8 @@
 import { fetchProducts } from "./services/apiService";
 import Product from "./models/Product"
+import { handleError } from "./utils/errorHandler";
+import { calculateDiscount } from "./utils/discountCalculator";
+import { calculateTax } from "./utils/taxCalculator";
 const main = async (): Promise<void> => {
   let productList: Product[]=[];
   try {
@@ -16,7 +19,6 @@ const main = async (): Promise<void> => {
           p.price,
           p.discountPercentage,
           p.image,
-          p.taxPercentage
         )
     )
     productList.forEach((p) =>{
@@ -26,10 +28,20 @@ const main = async (): Promise<void> => {
             Discounted Price : $${p.getPriceWithDiscount()}
             `
         )
+        console.log(
+            `
+            Discount Amount : $${(calculateDiscount(p))}
+            `
+        )
+        console.log(
+            `
+            Tax Amount : $${(calculateTax(p))}
+            `
+        )
     })
 
   } catch (error) {
-    console.log(error);
+    handleError(error);
   } finally {
     console.log("Api request complete");
   }

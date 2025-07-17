@@ -6,7 +6,7 @@ class Product {
   price: number;
   discountPercentage: number;
   image: string;
-  taxPercentage: number;
+  
 
   constructor(
     id: number,
@@ -16,7 +16,7 @@ class Product {
     price: number,
     discountPercentage: number,
     image: string,
-    taxPercentage: number = 4.75
+  
   ) {
     this.id = id;
     this.title = title;
@@ -25,7 +25,7 @@ class Product {
     this.price = price;
     this.discountPercentage = discountPercentage;
     this.image = image;
-    this.taxPercentage = taxPercentage;
+  
   }
 
   displayDetails = (): void => {
@@ -38,7 +38,6 @@ class Product {
     Price:              $${this.price.toFixed(2)}
     Discount:           ${this.discountPercentage}%
     Image URL:          ${this.image}
-    Tax:                ${this.taxPercentage}%
     ───────────────────────────────
     `);
   };
